@@ -1,13 +1,17 @@
+import { AST_Conditional } from "terser";
+
 const initialState = {
-  isFetching: false,
+  isFetching: true,
   error: "",
-  paperTopic: "New"
+  paperTopic: "news"
 };
 
 const apiStatusReducer = (state = initialState, action) => {
   switch (action.type) {
     case "SET_PAPER_TOPIC":
       return { ...state, paperTopic: action.paperTopic };
+    case "SET_IS_FETCHING":
+      return { ...state, isFetching: action.isFetching };
     default:
       return state;
   }

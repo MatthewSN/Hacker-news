@@ -9,19 +9,23 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function PaperSheet() {
+ function PaperSheet({url,title}) {
   const classes = useStyles();
-
+ 
   return (
     <div>
       <Paper className={classes.root}>
         <Typography variant="h5" component="h3">
-          This is a sheet of paper.
+          {title}
         </Typography>
         <Typography component="p">
-          Paper can be used to build surface or other elements for your application.
+          <a href={url}>{url}</a>
         </Typography>
       </Paper>
     </div>
   );
 }
+
+
+
+export default PaperSheet

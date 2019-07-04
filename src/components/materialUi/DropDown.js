@@ -9,7 +9,7 @@ import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import { connect } from "react-redux";
-import {setPaperTopic} from "../../actions/statusActions"
+import {setPaperTopic,setIsFetching} from "../../actions/statusActions"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -39,7 +39,8 @@ function DropDown({dispatch}) {
   }, []);
 
   function handleChange(event) {
-    dispatch(setPaperTopic(event.target.value))
+    dispatch(setPaperTopic(event.target.value.toLowerCase()))
+    dispatch(setIsFetching(true))
     setValues(oldValues => ({
       ...oldValues,
       [event.target.name]: event.target.value
@@ -63,7 +64,7 @@ function DropDown({dispatch}) {
             />
           }
         >
-          <MenuItem value="New">New</MenuItem>
+          <MenuItem value="News">News</MenuItem>
           <MenuItem value="Newest">Newest</MenuItem>
           <MenuItem value="Ask">Ask</MenuItem>
           <MenuItem value="Show">Show</MenuItem>

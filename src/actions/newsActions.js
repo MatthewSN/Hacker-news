@@ -1,7 +1,7 @@
 
-  export const setNews = (news=[]) => ({
-    type: "SET_NEWS",
-    news
+  export const setNews = (topicContents=[]) => ({
+    type: "SET_TOPIC_CONTENTS",
+    topicContents
   });
 
  
