@@ -1,6 +1,7 @@
 const initialState={
     isFetching:false,
-    error:""
+    error:"",
+    paperName:""
 }
 
 const apiStatusReducer = (state = initialState, action) => {
