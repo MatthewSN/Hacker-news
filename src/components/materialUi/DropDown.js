@@ -8,7 +8,8 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-import { connenct } from "react-redux";
+import { connect } from "react-redux";
+import {setPaperTopic} from "../../actions/statusActions"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -24,13 +25,13 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function DropDown() {
+function DropDown({dispatch}) {
   const classes = useStyles();
   const [values, setValues] = React.useState({
     topics: "",
     name: "hai"
   });
-
+  
   const inputLabel = React.useRef(null);
   const [labelWidth, setLabelWidth] = React.useState(0);
   React.useEffect(() => {
@@ -38,7 +39,7 @@ function DropDown() {
   }, []);
 
   function handleChange(event) {
-    console.log(event.target.value);
+    dispatch(setPaperTopic(event.target.value))
     setValues(oldValues => ({
       ...oldValues,
       [event.target.name]: event.target.value
@@ -72,5 +73,10 @@ function DropDown() {
     </form>
   );
 }
-
-export default DropDown;
+const mapStateToProps = state => {
+ 
+  return {
+    paperTopic: state.apiStatusReducer.paperTopic
+  };
+};
+export default connect(mapStateToProps)(DropDown);

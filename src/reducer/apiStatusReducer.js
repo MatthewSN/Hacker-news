@@ -1,12 +1,16 @@
-const initialState={
-    isFetching:false,
-    error:"",
-    paperName:""
-}
+const initialState = {
+  isFetching: false,
+  error: "",
+  paperTopic: "New"
+};
 
 const apiStatusReducer = (state = initialState, action) => {
-     return state
-    
-  };
-  
-  export default apiStatusReducer;
+  switch (action.type) {
+    case "SET_PAPER_TOPIC":
+      return { ...state, paperTopic: action.paperTopic };
+    default:
+      return state;
+  }
+};
+
+export default apiStatusReducer;

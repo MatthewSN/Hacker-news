@@ -1,0 +1,1 @@
+export const setPaperTopic="SET_PAPER_TOPIC"
