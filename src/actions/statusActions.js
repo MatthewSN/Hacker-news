@@ -1,15 +1,18 @@
+import {setErrorType,setPaperTopicType,setIsFetchingType} from "./types"
+
+
 export const setPaperTopic=(paperTopic="News")=>({
-    type:"SET_PAPER_TOPIC",
+    type:setPaperTopicType,
     paperTopic
   })
 
   export const setIsFetching=(isFetching=false)=>({
-    type:"SET_IS_FETCHING",
+    type:setIsFetchingType,
     isFetching
   })
 
   export const setError=(error="")=>({
-    type:"SET_ERROR",
+    type:setErrorType,
     error
   })
 

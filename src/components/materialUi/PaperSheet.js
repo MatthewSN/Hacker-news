@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import SecondaryButton from "./SecondaryButton"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -19,8 +20,9 @@ const useStyles = makeStyles(theme => ({
           {title}
         </Typography>
         <Typography component="p">
-          <a href={url}>{url}</a>
+          <SecondaryButton text="Visit The Webiste" href={url} />
         </Typography>
+        
       </Paper>
     </div>
   );

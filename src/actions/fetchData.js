@@ -1,4 +1,4 @@
-import { setNews } from "./newsActions";
+import { setTopicContens } from "./contentsActions";
 import { setIsFetching, setError } from "./statusActions";
 
 export const fetchData = (item, page) => {
@@ -19,7 +19,7 @@ export const fetchData = (item, page) => {
             url
           };
         });
-        dispatch(setNews(news));
+        dispatch(setTopicContens(news));
       })
       .catch(err => {
         dispatch(setError("Can't get the data"))
