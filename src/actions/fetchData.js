@@ -1,14 +1,13 @@
-import {setNews} from "./newsActions"
-import {setIsFetching} from "./statusActions"
-
+import { setNews } from "./newsActions";
+import { setIsFetching, setError } from "./statusActions";
 
 export const fetchData = (item, page) => {
   const request = fetch(`https://api.hnpwa.com/v0/${item}/${page}.json`);
 
   return dispatch => {
+    dispatch(setIsFetching(false));
     request
       .then(data => {
-        dispatch(setIsFetching(false))
         return data.json();
       })
       .then(data => {
@@ -20,7 +19,10 @@ export const fetchData = (item, page) => {
             url
           };
         });
-        dispatch(setNews(news))
+        dispatch(setNews(news));
+      })
+      .catch(err => {
+        dispatch(setError("Can't get the data"))
       });
   };
 };

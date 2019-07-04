@@ -12,6 +12,8 @@ const apiStatusReducer = (state = initialState, action) => {
       return { ...state, paperTopic: action.paperTopic };
     case "SET_IS_FETCHING":
       return { ...state, isFetching: action.isFetching };
+    case "SET_ERROR":
+     return {...state,error:action.error}
     default:
       return state;
   }
