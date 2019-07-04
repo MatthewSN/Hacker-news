@@ -1,18 +1,18 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import SecondaryButton from "./SecondaryButton"
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
+import SecondaryButton from "./SecondaryButton";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: theme.spacing(3, 2),
-  },
+    padding: theme.spacing(3, 2)
+  }
 }));
 
- function PaperSheet({url,title}) {
+function PaperSheet({ url, title }) {
   const classes = useStyles();
- 
+
   return (
     <div>
       <Paper className={classes.root}>
@@ -20,14 +20,11 @@ const useStyles = makeStyles(theme => ({
           {title}
         </Typography>
         <Typography component="p">
-          <SecondaryButton text="Visit The Webiste" href={url} />
+          <SecondaryButton href={url} text="Visit The Website" />
         </Typography>
-        
       </Paper>
     </div>
   );
 }
 
-
-
-export default PaperSheet
+export default PaperSheet;

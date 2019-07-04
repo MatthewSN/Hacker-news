@@ -11,7 +11,7 @@ export const fetchData = (item, page) => {
         return data.json();
       })
       .then(data => {
-        const news = data.map((item, index) => {
+        const contents = data.map((item, index) => {
           const { url, id, title } = item;
           return {
             id,
@@ -19,7 +19,7 @@ export const fetchData = (item, page) => {
             url
           };
         });
-        dispatch(setTopicContens(news));
+        dispatch(setTopicContens(contents));
       })
       .catch(err => {
         dispatch(setError("Can't get the data"))
