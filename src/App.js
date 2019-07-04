@@ -7,6 +7,7 @@ import DropDown from "./components/materialUi/DropDown";
 import NavBar from "./components/materialUi/NavBar";
 import PaperSheet from "./components/materialUi/PaperSheet";
 import { dispatch } from "C:/Users/matin/AppData/Local/Microsoft/TypeScript/3.3/node_modules/rxjs/internal/observable/range";
+import Spinner from "./components/materialUi/Spinner"
 
 function App({ dispatch, apiStatus, contents }) {
   const { isFetching, paperTopic, error } = apiStatus;
@@ -15,7 +16,6 @@ function App({ dispatch, apiStatus, contents }) {
     if (isFetching) {
       dispatch(fetchData(paperTopic, 1));
     }
-
     return (
       <div>
         {error || contents.map(item => (
@@ -24,11 +24,19 @@ function App({ dispatch, apiStatus, contents }) {
       </div>
     );
   }
+  function progress (){
+  
+    if(isFetching)
+      return(
+        <Spinner variant="indeterminate"  disableShrink={!isFetching}/>
+      )
+  }
   return (
     <div className="App">
       <NavBar />
       <DropDown />
       {showPapers()}
+      {progress()}
     </div>
   );
 }

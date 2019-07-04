@@ -1,8 +1,10 @@
 import {setNews} from "./newsActions"
 import {setIsFetching} from "./statusActions"
 
+
 export const fetchData = (item, page) => {
   const request = fetch(`https://api.hnpwa.com/v0/${item}/${page}.json`);
+
   return dispatch => {
     request
       .then(data => {
